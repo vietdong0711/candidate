@@ -12,7 +12,7 @@ public class JDBCUtils {
 		if (connection == null || connection.isClosed()) {
 			String url = "jdbc:mysql://localhost:3306/finalexam1";
 			String username = "root";
-			String password = "dong";
+			String password = "root";
 
 			// Step 1* register the driver class with DriverManager
 			Class.forName("com.mysql.cj.jdbc.Driver");
