@@ -75,18 +75,6 @@ public class ScannerUtils {
 		}
 	}
 
-//	public static String inputStringStream() {
-//		while (true) {
-//			String string = sc.nextLine().trim();
-//			if (!string.isEmpty()) {
-//				System.out.println(string);
-//				return string;
-//			} else {
-//				System.err.println("Nhập lại:");
-//			}
-//		}
-//	}
-
 	public static String inputPassword() {
 		while (true) {
 			String password = ScannerUtils.inputString();
@@ -96,13 +84,13 @@ public class ScannerUtils {
 			}
 			boolean hasAtLeast1Character = false;
 			for (int i = 0; i < password.length(); i++) {
-				if (Character.isUpperCase(password.charAt(i)) == true) {
+				if (Character.isUpperCase(password.charAt(i))) {
 					hasAtLeast1Character = true;
 					break;
 				}
 			}
 
-			if (hasAtLeast1Character == true) {
+			if (hasAtLeast1Character) {
 				return password;
 			} else {
 				System.out.print("Mời bạn nhập lại password: ");
@@ -152,14 +140,15 @@ public class ScannerUtils {
 
 	public static String inputPhoneNumber() {
 
-		System.out.println("Nhập vào số điện thoại");
-//		sc.nextLine();
 		while (true) {
 			boolean isNumber = true;
 			String number = ScannerUtils.inputString();
 
 
 			if (number.charAt(0) != '0') {
+				isNumber = false;
+			}
+			if (number.length() > 12 || number.length() < 9) {
 				isNumber = false;
 			}
 

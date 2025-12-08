@@ -3,7 +3,7 @@ package com.vti.final24072023.frontend;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import com.vti.final24072023.backend.presentationlayer.CandidateController;
+import com.vti.final24072023.backend.controller.CandidateController;
 import com.vti.final24072023.entity.Candidate;
 import com.vti.final24072023.entity.GraduationRank;
 import com.vti.final24072023.utils.ScannerUtils;
@@ -16,7 +16,7 @@ public class Function {
 		candidateController = new CandidateController();
 	}
 
-	Scanner scanner = new Scanner(System.in);
+	private Scanner scanner = new Scanner(System.in);
 
 	public void login() throws ClassNotFoundException, SQLException {
 		while (true) {
@@ -43,7 +43,7 @@ public class Function {
 		String firstname = scanner.nextLine();
 		System.out.print("moi ban nhap lastname cua account: ");
 		String lastname = scanner.nextLine();
-//		System.out.print("moi ban nhap phone cua account: ");
+		System.out.print("moi ban nhap phone cua account: ");
 		String phone = ScannerUtils.inputPhoneNumber();
 		System.out.print("moi ban nhap password cua account: ");
 		String password = ScannerUtils.inputPassword();
@@ -79,7 +79,7 @@ public class Function {
 		String firstname = scanner.nextLine();
 		System.out.print("moi ban nhap lastname cua account: ");
 		String lastname = scanner.nextLine();
-//		System.out.print("moi ban nhap phone cua account: ");
+		System.out.print("moi ban nhap phone cua account: ");
 		String phone = ScannerUtils.inputPhoneNumber();
 		System.out.print("moi ban nhap password cua account: ");
 		String password = ScannerUtils.inputPassword();

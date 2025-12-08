@@ -1,4 +1,4 @@
-package com.vti.final24072023.backend.datalayer;
+package com.vti.final24072023.backend.repository;
 
 import java.sql.*;
 
@@ -18,8 +18,9 @@ public class CandidateRepository implements ICandidateRepository {
 	}
 	
 	// dki cho 	ExperienceCandidate
-	public boolean registerE(String firstName, String lastName, String phone, String email, int expInYear,
-			String proSkill, String password) throws ClassNotFoundException, SQLException {
+	@Override
+	public boolean registerExperience(String firstName, String lastName, String phone, String email, int expInYear,
+									  String proSkill, String password) throws ClassNotFoundException, SQLException {
 		try {
 			// Step 1: get connection
 			Connection connection = jdbcUtils.getConnection();
@@ -53,8 +54,8 @@ public class CandidateRepository implements ICandidateRepository {
 	}
 
 	// dki cho FresherCandidate
-	public boolean registerF(String firstName, String lastName, String phone, String email,
-			GraduationRank graduationRank, String password) throws SQLException, ClassNotFoundException {
+	public boolean registerFresher(String firstName, String lastName, String phone, String email,
+								   GraduationRank graduationRank, String password) throws SQLException, ClassNotFoundException {
 		try {
 			// Step 1: get connection
 			Connection connection = jdbcUtils.getConnection();
@@ -104,24 +105,23 @@ public class CandidateRepository implements ICandidateRepository {
 				String lastName = resultSet.getString(3);
 				String phone = resultSet.getString(4);
 
-				String role = resultSet.getString(10);// string
+				String roleString = resultSet.getString(10);// string
 				// chuyen tu string về enum
-				Role rol = Role.valueOf(role);
+				Role role = Role.valueOf(roleString);
 
-				if (Role.EXPERIENCECANDIDATE.equals(rol)) {
+				if (Role.EXPERIENCECANDIDATE.equals(role)) {
 					int expInYear = resultSet.getInt(7);
 					String proSkill = resultSet.getString(8);
 
-					Candidate e = new ExperienceCandidate(id, firstName, lastName, phone, email, password, rol,
+					Candidate e = new ExperienceCandidate(id, firstName, lastName, phone, email, password, role,
 							expInYear, proSkill);
 					return e;
 				} else {
-					GraduationRank graduationRank = null;
 					// chuyển rank từ String >>> enum
 					String g = resultSet.getString(9);
-					graduationRank = GraduationRank.valueOf(g);
+					GraduationRank graduationRank = GraduationRank.valueOf(g);
 					
-					Candidate f = new FresherCandidate(id, firstName, lastName, phone, email, password, rol,
+					Candidate f = new FresherCandidate(id, firstName, lastName, phone, email, password, role,
 							graduationRank);
 					return f;
 				}
@@ -158,8 +158,9 @@ public class CandidateRepository implements ICandidateRepository {
 			jdbcUtils.disconnect();
 		}
 	}
-	//email : abc
+	//email : abc@123
 	//1,  123
 	//2.  456
+	// cùng email nhưng khác password: abc@123/123
 
 }
