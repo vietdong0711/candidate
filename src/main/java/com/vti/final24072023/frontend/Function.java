@@ -60,7 +60,7 @@ public class Function {
 			email = ScannerUtils.inputEmail();// kiem tra dung dịnh dang email chua
 			boolean resultExistsEmail = candidateController.isUserExistsByEmail(email); // kiem tra xem email có bi trung hayko
 			// tao 2 tk giong ý chang nhau( giong email: a@gmail.com và gióng password: 123456)   tk1 và tk2 
-			if (resultExistsEmail) {
+			if (resultExistsEmail == true) {
 				System.err.printf("\nEmail %s da ton tai! moi nhap email mail khac: ", email);
 			} else {
 				break;

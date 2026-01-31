@@ -90,7 +90,7 @@ public class ScannerUtils {
 				}
 			}
 
-			if (hasAtLeast1Character) {
+			if (hasAtLeast1Character) {// password dung
 				return password;
 			} else {
 				System.out.print("Mời bạn nhập lại password: ");
@@ -98,7 +98,7 @@ public class ScannerUtils {
 		}
 	}
 
-	// Ctrl + Shift + O ==> import thư viện
+	// Ctrl + Shift + O ==> import thư viện  kiem tra dinh dang email
 	public static String inputEmail() {
 		while (true) {
 			String email = sc.nextLine();// equals(); so sanh gtri,   == so sánh địa chỉ ,  biểu thức chính quy, matches(): so sánh  theo quy tắc
@@ -159,7 +159,7 @@ public class ScannerUtils {
 					break;
 				}
 			}
-			if (isNumber == true) {
+			if (isNumber == true) {// sdt hop le
 				return number;
 			} else {
 				System.out.print("Nhập lại: ");

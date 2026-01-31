@@ -38,10 +38,8 @@ public class CandidateRepository implements ICandidateRepository {
 			statement.setInt(6, expInYear);
 			statement.setString(7, proSkill);
 			
-//			ResultSet rSet = statement.executeQuery(); // cau query   select  ko thay đổi dữ liệu trong DB
-
 			// Step 3: Execute SQL query
-			int c = statement.executeUpdate();// insert delete update: thay đổi dữ liệu trong DB
+			int c = statement.executeUpdate();// số hàng được cập nhật trong DB
 			if (c > 0) {
 				return true;
 			} else {
@@ -146,7 +144,7 @@ public class CandidateRepository implements ICandidateRepository {
 			statement.setString(1, email);
 
 			// Step 3: Execute SQL query
-			ResultSet resultSet = statement.executeQuery();
+			ResultSet resultSet = statement.executeQuery();// hứng result grid trong DB
 
 			// Step 4: Handling Result Set
 			if (resultSet.next()) {

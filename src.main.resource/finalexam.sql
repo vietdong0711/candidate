@@ -1,5 +1,5 @@
-create database if not exists Candidate;
-use Candidate;
+create database if not exists finalexam1;
+use finalexam1;
 
 create table candidate(
 	id int primary key auto_increment,

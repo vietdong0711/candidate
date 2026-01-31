@@ -11,7 +11,7 @@ public class Candidate {
 	private Role role;
 
 	public Candidate() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public Candidate(int id, String firstName, String lastName, String phone, String email, String password,
