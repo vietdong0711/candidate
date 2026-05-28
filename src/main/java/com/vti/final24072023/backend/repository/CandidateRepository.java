@@ -71,11 +71,12 @@ public class CandidateRepository implements ICandidateRepository {
 
 			// Step 3: Execute SQL query
 			int c = statement.executeUpdate();
-			if (c > 0) {
-				return true;
-			} else {
-				return false;
-			}
+//			if (c > 0) {
+//				return true;
+//			} else {
+//				return false;
+//			}
+			return c > 0;
 
 		} finally {
 			jdbcUtils.disconnect();
