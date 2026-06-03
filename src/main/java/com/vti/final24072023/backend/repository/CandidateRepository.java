@@ -40,11 +40,7 @@ public class CandidateRepository implements ICandidateRepository {
 			
 			// Step 3: Execute SQL query
 			int c = statement.executeUpdate();// số hàng được cập nhật trong DB
-			if (c > 0) {
-				return true;
-			} else {
-				return false;
-			}
+			return c > 0;
 
 		} finally {
 			jdbcUtils.disconnect();
